@@ -81,7 +81,7 @@ body{
     <!-- Routine Section -->
     <div class="section-card">
       <div class="d-flex justify-content-between align-items-center mb-2">
-        <h3 class="m-0">🏟️ Outdoor – Routine Pitch Maintenance</h3>
+        <h3 class="m-0">🏟️ Gardening Services</h3>
         <div class="table-actions">
           <button class="btn btn-sm btn-outline-success" type="button" id="selectAllRoutine">Select all</button>
           <button class="btn btn-sm btn-outline-secondary" type="button" id="clearRoutine">Clear</button>
@@ -93,17 +93,9 @@ body{
           <tbody>
             <?php
             $routine_services = [
-              ["Mowing (Regular Cutting)","Cutting grass to sport-specific height."],
-              ["Edging & Trimming","Neatening pitch edges and borders."],
-              ["Aeration","Relieves compaction; improves drainage."],
-              ["Fertilising","Nutrient boost for healthy turf."],
-              ["Overseeding","Maintains turf density and recovery."],
-              ["Top Dressing","Levels surface and improves soil texture."],
-              ["Scarification","Removes thatch, moss, and debris."],
-              ["Watering / Irrigation","Keeps turf hydrated in dry periods."],
-              ["Weed & Pest Control","Targets weeds, insects, or turf diseases."],
-              ["Line Marking","Professional pitch markings to regulation size."],
-              ["Goal Mouth / Wear Zone Repair","Repairs worn areas with turf or seed."]
+              ["Lawn Mowing (Regular Cutting)","Cutting grass to sport-specific height."],
+              ["Edging & Hedge Trimming","Neatening pitch edges and borders."],
+			  ["Weed & Pest Control","Targets weeds, insects, or turf diseases."]
             ];
             foreach($routine_services as $i=>$srv){
                 $id="routine_{$i}";
@@ -122,7 +114,7 @@ body{
     <!-- Special Section -->
     <div class="section-card">
       <div class="d-flex justify-content-between align-items-center mb-2">
-        <h3 class="m-0">🌾 Outdoor – Specialised & Seasonal Works</h3>
+        <h3 class="m-0">🌾 Sports Field – Specialised & Seasonal Works</h3>
         <div class="table-actions">
           <button class="btn btn-sm btn-outline-success" type="button" id="selectAllSpecial">Select all</button>
           <button class="btn btn-sm btn-outline-secondary" type="button" id="clearSpecial">Clear</button>
@@ -135,11 +127,19 @@ body{
             <?php
             $special_services = [
               ["Seasonal Renovation","End-of-season deep maintenance & restoration."],
-              ["Compaction Relief","Full soil structure restoration."],
-              ["Drainage Management","Preventing waterlogging and improving playability."],
-              ["Match Preparation","Line marking, rolling, brushing, watering, prep."],
+              ["Match Preparation","Cutting, rolling, brushing, watering, prep."],
+			        ["Line Marking","Professional pitch markings to regulation size."],
               ["Seasonal Grass Management","Overseeding for summer/winter transition."],
-              ["Pest, Disease & Weed Monitoring","Inspection & early treatment."]
+              ["Pest, Disease & Weed Monitoring","Inspection & early treatment."],
+			        ["Aeration","Relieves compaction; improves drainage."],
+              ["Fertilising","Nutrient boost for healthy turf."],
+              ["Overseeding","Maintains turf density and recovery."],
+              ["Top Dressing","Levels surface and improves soil texture."],
+              ["Scarification","Removes thatch, moss, and debris."],
+              ["Watering / Irrigation","Keeps turf hydrated in dry periods."]
+              
+             
+              
             ];
             foreach($special_services as $i=>$srv){
                 $id="special_{$i}";
@@ -158,7 +158,7 @@ body{
 
     <!-- Dates -->
     <div class="section-card">
-      <h4 class="mb-2">Preferred Service Dates (up to 3)</h4>
+      <h4 class="mb-2">Consultation Dates (up to 3)</h4>
       <input type="date" name="service_dates[]" class="form-control mb-2" min="<?=date('Y-m-d')?>">
       <input type="date" name="service_dates[]" class="form-control mb-2" min="<?=date('Y-m-d')?>">
       <input type="date" name="service_dates[]" class="form-control mb-2" min="<?=date('Y-m-d')?>">
