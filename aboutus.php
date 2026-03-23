@@ -83,7 +83,7 @@ section:first-of-type { margin-top: 0 !important; }
     <div class="row align-items-center">
       <div class="col-lg-7">
         <h1 class="mb-2">About FieldCraft</h1>
-        <p class="lead mb-3">Care for every square - with smart scheduling and grounded expertise.</p>
+        <p class="lead mb-3">Care for every square - with smart scheduling, AI-assisted insights, and grounded expertise.</p>
         <div class="stats">
           <div class="stat-card"><div class="num" data-count="25">0</div><div class="lbl">Years of Mentored Know-How</div></div>
           <div class="stat-card"><div class="num" data-count="98">0</div><div class="lbl">% Client Satisfaction</div></div>
@@ -100,11 +100,32 @@ section:first-of-type { margin-top: 0 !important; }
 <section class="about-section py-5">
   <div class="container">
     <div class="row align-items-start">
+      
+      <!-- Text Column -->
       <div class="col-md-6">
         <h2 class="mb-3 section-title">Who We Are</h2>
         <p><strong>FieldCraft</strong> Maintenance is a modern, eco‑focused grounds and gardening service dedicated to keeping natural sports fields and outdoor spaces healthy, safe, and beautifully maintained. We combine professional expertise with a genuine passion for natural surfaces - delivering reliable field care, precision maintenance, and gardening solutions for clubs, schools, businesses, and private clients.</p>
         <p>With simple online booking, you can choose your preferred appointment date, request a consultation, and manage your services with ease. Every project is carried out with care, attention to detail, and a strong focus on client satisfaction, ensuring your field or garden always looks its best.</p>
       </div>
+      
+      <!-- Carousel Column -->
+      <div class="col-md-6">
+        <div id="fieldBannerCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner rounded shadow" style="max-height: 350px; overflow:hidden;">
+            <div class="carousel-item active">
+              <img src="assets/image1.jpeg" class="d-block w-100" alt="Field 1">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/image2.jpeg" class="d-block w-100" alt="Field 2">
+            </div>
+            <div class="carousel-item">
+              <img src="assets/image3.jpeg" class="d-block w-100" alt="Field 3">
+            </div>
+          </div>
+		  <div id="fieldBannerCarousel" class="carousel slide mb-3" data-bs-ride="carousel" data-bs-interval="1000">
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
