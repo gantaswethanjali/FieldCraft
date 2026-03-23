@@ -83,10 +83,9 @@ section:first-of-type { margin-top: 0 !important; }
     <div class="row align-items-center">
       <div class="col-lg-7">
         <h1 class="mb-2">About FieldCraft</h1>
-        <p class="lead mb-3">Care for every square — with smart scheduling, AI-assisted insights, and grounded expertise.</p>
+        <p class="lead mb-3">Care for every square - with smart scheduling and grounded expertise.</p>
         <div class="stats">
           <div class="stat-card"><div class="num" data-count="25">0</div><div class="lbl">Years of Mentored Know-How</div></div>
-          <div class="stat-card"><div class="num" data-count="300">0</div><div class="lbl">+ Pitches Served</div></div>
           <div class="stat-card"><div class="num" data-count="98">0</div><div class="lbl">% Client Satisfaction</div></div>
         </div>
       </div>
@@ -103,13 +102,8 @@ section:first-of-type { margin-top: 0 !important; }
     <div class="row align-items-start">
       <div class="col-md-6">
         <h2 class="mb-3 section-title">Who We Are</h2>
-        <p><strong>FieldCraft</strong> is the UK’s first AI-powered online platform for sports field and facility maintenance. We bring instant booking, smart scheduling, and intelligent field condition analysis to schools, councils, and sports clubs.</p>
-        <p>We believe every playing surface — from open fields to indoor halls — deserves care that matches the passion of the people who use it. Whether it’s a school ground, a local club pitch, or a community sports hall, our mission is to keep your facilities in top condition, season after season.</p>
-      </div>
-      <div class="col-md-6">
-        <h2 class="mb-3 section-title">What We Do</h2>
-        <p>We specialise in sports field and facility maintenance, offering tailored services for natural surfaces, sports halls, and artificial fields on request. Our focus is on maintaining performance, safety, and longevity — reserving full renovations for when they’re truly necessary.</p>
-        <p>Guided by a mentor with over <strong>25 years of industry experience</strong>, we combine hands-on knowledge with practical, cost-conscious solutions. You get reliable service and honest advice — every time.</p>
+        <p><strong>FieldCraft</strong> Maintenance is a modern, eco‑focused grounds and gardening service dedicated to keeping natural sports fields and outdoor spaces healthy, safe, and beautifully maintained. We combine professional expertise with a genuine passion for natural surfaces - delivering reliable field care, precision maintenance, and gardening solutions for clubs, schools, businesses, and private clients.</p>
+        <p>With simple online booking, you can choose your preferred appointment date, request a consultation, and manage your services with ease. Every project is carried out with care, attention to detail, and a strong focus on client satisfaction, ensuring your field or garden always looks its best.</p>
       </div>
     </div>
   </div>
