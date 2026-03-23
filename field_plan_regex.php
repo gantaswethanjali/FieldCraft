@@ -10,10 +10,9 @@ if($_SERVER['REQUEST_METHOD']!=='POST'){
 
 // Valid services
 $valid_services=[
-    "Mowing (Regular Cutting)","Edging & Trimming","Aeration","Fertilising",
+    "Lawn Mowing (Regular Cutting)","Edging & Hedge Trimming","Weed & Pest Control","Aeration","Fertilising",
     "Overseeding","Top Dressing","Scarification","Watering / Irrigation",
-    "Weed & Pest Control","Line Marking","Goal Mouth / Wear Zone Repair",
-    "Seasonal Renovation","Compaction Relief","Drainage Management","Match Preparation",
+    "Line Marking","Seasonal Renovation","Match Preparation",
     "Seasonal Grass Management","Pest, Disease & Weed Monitoring"
 ];
 
