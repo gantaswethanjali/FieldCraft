@@ -62,7 +62,7 @@ body { margin:0; padding-top: var(--nav-h); background:#0b1410; }
   <div class="hero-caption">
     <div class="hero-title" id="heroTitle">Ground</div>
     <div class="hero-sub">
-      <span>Care For Square • </span><span class="typer" id="typer"></span>
+      <span>Care For Every Square • </span><span class="typer" id="typer"></span>
     </div>
   </div>
 </section>
