@@ -4,6 +4,12 @@ session_start();
 $selected_services = $_SESSION['one_time_selected_services'] ?? [];
 $selected_dates    = $_SESSION['one_time_selected_dates'] ?? [];
 
+// Redirect if no session data
+if (empty($selected_services)) {
+    header('Location: field_plan.php');
+    exit;
+}
+
 require __DIR__ . '/src/PHPMailer.php';
 require __DIR__ . '/src/SMTP.php';
 require __DIR__ . '/src/Exception.php';
@@ -15,46 +21,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $address  = trim($_POST['service_address'] ?? '');
     $town     = trim($_POST['service_town'] ?? '');
-    $postcode = trim($_POST['service_postcode'] ?? '');
+    $postcode = strtoupper(trim($_POST['service_postcode'] ?? ''));
     $email    = trim($_POST['service_email'] ?? '');
     $phone    = trim($_POST['service_phone'] ?? '');
 
-    // ✅ REGEX VALIDATION
-    $postcodeRegex = "/^[A-Z]{1,2}[0-9R][0-9A-Z]? ?[0-9][A-Z]{2}$/i"; // UK postcode
-    $phoneRegex    = "/^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/"; // UK mobile
+    // Validation
+    $postcodeRegex = "/^[A-Z]{1,2}[0-9R][0-9A-Z]? ?[0-9][A-Z]{2}$/i";
+    $phoneRegex    = "/^(\+44\s?7\d{3}|\(?07\d{3}\)?)\s?\d{3}\s?\d{3}$/";
 
     if (
-        !$address ||
-        !$town ||
-        !$postcode ||
-        !$email ||
-        !$phone ||
+        !$address || !$town || !$postcode || !$email || !$phone ||
         !filter_var($email, FILTER_VALIDATE_EMAIL) ||
         !preg_match($postcodeRegex, $postcode) ||
         !preg_match($phoneRegex, $phone)
     ) {
-        $_SESSION['error'] = '⚠️ Please enter valid details (email, UK postcode, phone).';
+        $_SESSION['error'] = '⚠️ Please enter valid details.';
         header('Location: confirmation.php');
         exit;
     }
 
-    $isLocal = true; // 🔥 change to false when on Hostinger
+    // Safe output
+    $addressSafe  = htmlspecialchars($address);
+    $townSafe     = htmlspecialchars($town);
+    $postcodeSafe = htmlspecialchars($postcode);
+    $phoneSafe    = htmlspecialchars($phone);
+
+    $servicesList = !empty($selected_services) ? implode(", ", $selected_services) : "N/A";
+    $datesList    = !empty($selected_dates) ? implode(", ", $selected_dates) : "N/A";
+
+    $isLocal = false; // 🔥 SET TO FALSE ON HOSTINGER
 
     if (!$isLocal) {
-        $mail = new PHPMailer(true);
 
         try {
+            $mail = new PHPMailer(true);
+
             $mail->isSMTP();
             $mail->Host       = 'smtp.hostinger.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'your@domain.com';
-            $mail->Password   = 'your_password';
+            $mail->Username   = 'your@domain.com'; // CHANGE
+            $mail->Password   = 'your_password';   // CHANGE
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
+            $mail->SMTPDebug  = 0;
 
             $mail->setFrom('your@domain.com', 'FieldCraft Bookings');
+
+            // ===== EMAIL TO CUSTOMER =====
             $mail->addAddress($email);
-            $mail->addReplyTo($email);
+            $mail->addReplyTo('your@domain.com', 'FieldCraft');
 
             $mail->isHTML(true);
             $mail->Subject = "FieldCraft Booking Confirmed";
@@ -63,29 +78,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h3>Booking Confirmed</h3>
             <p>Your FieldCraft booking has been confirmed.</p>
 
-            <p><strong>Services:</strong><br>" . implode(", ", $selected_services) . "</p>
+            <p><strong>Services:</strong><br>$servicesList</p>
+            <p><strong>Dates:</strong><br>$datesList</p>
 
-            <p><strong>Dates:</strong><br>" . implode(", ", $selected_dates) . "</p>
+            <p><strong>Address:</strong><br>$addressSafe, $townSafe, $postcodeSafe</p>
+            <p><strong>Phone:</strong><br>$phoneSafe</p>
 
-            <p><strong>Address:</strong><br>$address, $town, $postcode</p>
-
-            <p><strong>Phone:</strong><br>$phone</p>
-
-            <p>One of our colleagues will contact you shortly.</p>
-
+            <p>We will contact you shortly.</p>
             <p>Thank you,<br>FieldCraft Team</p>
             ";
 
             $mail->send();
 
-            $_SESSION['success'] = "✅ Booking confirmed! Email sent to $email.";
+            // ===== EMAIL TO YOU (ADMIN) =====
+            $mail->clearAddresses();
+            $mail->clearReplyTos();
+
+            $mail->addAddress('your@domain.com'); // YOUR EMAIL
+
+            $mail->Subject = "New Booking Received";
+
+            $mail->Body = "
+            <h3>New Booking Received</h3>
+
+            <p><strong>Customer Email:</strong> $email</p>
+
+            <p><strong>Services:</strong><br>$servicesList</p>
+            <p><strong>Dates:</strong><br>$datesList</p>
+
+            <p><strong>Address:</strong><br>$addressSafe, $townSafe, $postcodeSafe</p>
+            <p><strong>Phone:</strong><br>$phoneSafe</p>
+            ";
+
+            $mail->send();
+
+            $_SESSION['success'] = "✅ Booking confirmed! Email sent.";
+
+            // Prevent duplicate submissions
+            unset($_SESSION['one_time_selected_services']);
+            unset($_SESSION['one_time_selected_dates']);
 
         } catch (Exception $e) {
-            $_SESSION['error'] = "❌ Email failed: " . $mail->ErrorInfo;
+            $_SESSION['error'] = "❌ Booking saved, but email could not be sent.";
         }
 
     } else {
-        $_SESSION['success'] = "✅ Booking confirmed! (Email skipped in local testing)";
+        $_SESSION['success'] = "✅ Booking confirmed! (Local test mode)";
     }
 
     header('Location: confirmation.php');
@@ -100,6 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <h2 class="text-center mb-4 text-success">Confirm Your Service</h2>
 
 <?php if (!empty($_SESSION['success'])): ?>
+
   <div class="alert alert-success text-center">
     <?= htmlspecialchars($_SESSION['success']) ?>
   </div>
@@ -107,17 +146,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 <?php if (!empty($_SESSION['error'])): ?>
+
   <div class="alert alert-danger text-center">
     <?= htmlspecialchars($_SESSION['error']) ?>
   </div>
   <?php unset($_SESSION['error']); ?>
 <?php endif; ?>
-
-<?php if (empty($selected_services)): ?>
-  <div class="alert alert-danger text-center">
-    No services selected. <a href="field_plan.php">Go back</a>
-  </div>
-<?php else: ?>
 
 <form method="POST" class="card p-4" style="max-width:600px;margin:auto;">
 
@@ -138,7 +172,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   </button>
 
 </form>
-
-<?php endif; ?>
 
 </div>
