@@ -128,10 +128,10 @@ body{
             $special_services = [
               ["Seasonal Renovation","End-of-season deep maintenance & restoration."],
               ["Match Preparation","Cutting, rolling, brushing, watering, prep."],
-			        ["Line Marking","Professional pitch markings to regulation size."],
+			  ["Line Marking","Professional pitch markings to regulation size."],
               ["Seasonal Grass Management","Overseeding for summer/winter transition."],
               ["Pest, Disease & Weed Monitoring","Inspection & early treatment."],
-			        ["Aeration","Relieves compaction; improves drainage."],
+			  ["Aeration","Relieves compaction; improves drainage."],
               ["Fertilising","Nutrient boost for healthy turf."],
               ["Overseeding","Maintains turf density and recovery."],
               ["Top Dressing","Levels surface and improves soil texture."],
