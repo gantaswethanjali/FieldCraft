@@ -83,9 +83,9 @@ section:first-of-type { margin-top: 0 !important; }
     <div class="row align-items-center">
       <div class="col-lg-7">
         <h1 class="mb-2">About FieldCraft</h1>
-        <p class="lead mb-3">Care for every square - with smart scheduling, AI-assisted insights, and grounded expertise.</p>
+        <p class="lead mb-3">Care for every square - with smart scheduling, and grounded expertise.</p>
         <div class="stats">
-          <div class="stat-card"><div class="num" data-count="25">0</div><div class="lbl">Years of Mentored Know-How</div></div>
+          <div class="stat-card"><div class="num" data-count="25">0</div><div class="lbl">Years of experience guiding our mentorship.</div></div>
           <div class="stat-card"><div class="num" data-count="98">0</div><div class="lbl">% Client Satisfaction</div></div>
         </div>
       </div>
@@ -170,7 +170,7 @@ section:first-of-type { margin-top: 0 !important; }
           <div class="t-item"><h6 class="mb-1">1. Quick Discovery</h6><p class="mb-0 text-muted">Tell us your ground type, play frequency, and priorities.</p></div>
           <div class="t-item"><h6 class="mb-1">2. Smart Plan</h6><p class="mb-0 text-muted">We propose an in-season plan aligned to GMA / FA / RFU / ECB guidance.</p></div>
           <div class="t-item"><h6 class="mb-1">3. On-Site Care</h6><p class="mb-0 text-muted">Technicians deliver routine works, match prep, and seasonal attention.</p></div>
-          <div class="t-item"><h6 class="mb-1">4. Simple Reporting</h6><p class="mb-0 text-muted">Photos, readings, and notes visible in your portal — no paperwork chase.</p></div>
+          <div class="t-item"><h6 class="mb-1">4. Simple Reporting</h6><p class="mb-0 text-muted">Photos, readings, and notes will be sent to you - no paperwork chase.</p></div>
         </div>
       </div>
       <div class="col-md-6">
@@ -182,7 +182,7 @@ section:first-of-type { margin-top: 0 !important; }
               </button>
             </h2>
             <div id="a1" class="accordion-collapse collapse show" data-bs-parent="#faq">
-              <div class="accordion-body">Yes — we maintain natural surfaces routinely and can support artificial or hybrid on request, including inspections and deep cleans via partners.</div>
+              <div class="accordion-body">We maintain natural surfaces (Sports Fields) routinely and can support garden maintenance, including inspections and deep cleans.</div>
             </div>
           </div>
           <div class="accordion-item">
@@ -192,7 +192,7 @@ section:first-of-type { margin-top: 0 !important; }
               </button>
             </h2>
             <div id="a2" class="accordion-collapse collapse" data-bs-parent="#faq">
-              <div class="accordion-body">Absolutely — book a one-time service to trial our approach, then move to a weekly/monthly/annual plan.</div>
+              <div class="accordion-body">Absolutely - book a one-time service to trial our approach.</div>
             </div>
           </div>
           <div class="accordion-item">
@@ -202,7 +202,7 @@ section:first-of-type { margin-top: 0 !important; }
               </button>
             </h2>
             <div id="a3" class="accordion-collapse collapse" data-bs-parent="#faq">
-              <div class="accordion-body">Yes — aligned with <strong>GMA</strong>, <strong>FA</strong>, <strong>RFU</strong> and <strong>ECB</strong> guidelines.</div>
+              <div class="accordion-body">Yes - aligned with <strong>GMA</strong>, <strong>FA</strong>, <strong>RFU</strong> and <strong>ECB</strong> guidelines.</div>
             </div>
           </div>
         </div>
