@@ -73,6 +73,7 @@ body { margin:0; padding-top: var(--nav-h); background:#0b1410; }
     <p class="mb-1">📞 +</p>
     <p>✉️ admin.fieldcraftservices@gmail.com</p>
   </div>
+  <?php include 'footer.php'; ?>
 </section>
 
 <script>
