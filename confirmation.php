@@ -59,17 +59,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->isSMTP();
             $mail->Host       = 'smtp.hostinger.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'your@domain.com'; // CHANGE
-            $mail->Password   = 'your_password';   // CHANGE
+            $mail->Username   = 'admin.fieldcraftservices@gmail.com'; // CHANGE
+            $mail->Password   = '';   // CHANGE
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
             $mail->SMTPDebug  = 0;
 
-            $mail->setFrom('your@domain.com', 'FieldCraft Bookings');
+            $mail->setFrom('admin.fieldcraftservices@gmail.com', 'FieldCraft Bookings');
 
             // ===== EMAIL TO CUSTOMER =====
             $mail->addAddress($email);
-            $mail->addReplyTo('your@domain.com', 'FieldCraft');
+            $mail->addReplyTo('admin.fieldcraftservices@gmail.com', 'FieldCraft');
 
             $mail->isHTML(true);
             $mail->Subject = "FieldCraft Booking Confirmed";
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->clearAddresses();
             $mail->clearReplyTos();
 
-            $mail->addAddress('your@domain.com'); // YOUR EMAIL
+            $mail->addAddress('admin.fieldcraftservices@gmail.com'); // YOUR EMAIL
 
             $mail->Subject = "New Booking Received";
 
